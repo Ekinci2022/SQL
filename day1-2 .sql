@@ -192,3 +192,13 @@ INSERT INTO ogrenciler6 VALUES(125, 'Kemal Yasa', 'Hasan',85);
 INSERT INTO ogrenciler6 VALUES(126, 'Nesibe Yilmaz', 'Ayse',95);
 INSERT INTO ogrenciler6 VALUES(127, 'Mustafa Bak', 'Can',99);
 INSERT INTO ogrenciler6 VALUES(127, 'Mustafa Bak', 'Ali', 99);
+
+-- ismi mustafa bak ve nesibe yilmaz olan ogrencileri sil
+
+select *from ogrenciler6
+
+delete from ogrenciler6 where isim='Mustafa Bak' or isim = 'Nesibe Yilmaz';
+
+--veli ismi hasan olan datayi silelim
+delete from ogrenciler6 where veli_isim='Hasan';
+
