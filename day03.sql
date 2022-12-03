@@ -362,4 +362,13 @@ update urunler1
 set urun_id=urun_id+ ted_vergino
 
 
- --Urunler tablosunda laptop satin alan musterilerin ismini, firma_ismi Apple’in irtibat_isim'i ile degistirin.
+DELETE FROM urunler
+--* urunler tablosundan Ali Bak’in aldigi urunun ismini, tedarikci  tablosunda irtibat_ismi 
+--'Adam Eve' olan firmanın ismi (firma_ismi) ile degistiriniz.
+UPDATE urunler                      
+SET urun_isim = (SELECT firma_ismi FROM tedarikciler WHERE irtibat_ismi = 'Adam Eve')                       
+WHERE musteri_isim='Ali Bak';                       
+--* Urunler tablosunda laptop satin alan musterilerin ismini, firma_ismi Apple’in irtibat_isim'i ile degistirin.
+UPDATE urunler                      
+SET musteri_isim = (SELECT irtibat_ismi FROM tedarikciler WHERE firma_ismi='Apple')                     
+WHERE urun_isim='Laptop'                        
